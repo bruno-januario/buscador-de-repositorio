@@ -5,6 +5,10 @@
     flex-wrap: nowrap;
 }
 
+.card-result {
+    margin: 2.8rem 0;
+}
+
 p {
     margin: 0.4rem 0;
 }

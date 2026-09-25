@@ -9,7 +9,7 @@ export function showRepositories(data) {
     let items = data.items;
 
     const htmlContent = items.map(item => `
-        <div class="flex">
+        <div class="card-result flex">
             <div class="repo-container">
                 <h2>Repositório: ${item.name}</h2>
                 <p class="repo-description">Descrição: ${item.description || 'Sem descrição'}</p>
