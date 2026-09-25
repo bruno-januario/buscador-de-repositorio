@@ -11,11 +11,11 @@ export function showRepositories(data) {
     const htmlContent = items.map(item => `
         <div class="card-result flex">
             <div class="repo-container">
-                <h2>Repositório: ${item.name}</h2>
-                <p class="repo-description">Descrição: ${item.description || 'Sem descrição'}</p>
-                <p>Linguagem principal: ${item.language || 'Indisponível'}</p>
-                <p>Número de estrelas: ${item.stargazers_count}</p>
-                <p>Para acessar, <a href="${item.html_url}" target="_blank">clique aqui!</a></p>
+                <h2>${item.name}</h2>
+                <p class="repo-description"><span>Descrição</span>: ${item.description || 'Sem descrição'}</p>
+                <p><span>Linguagem principal</span>: ${item.language || 'Indisponível'}</p>
+                <p><span>Número de estrelas</span>: ${item.stargazers_count}</p>
+                <p class="margin-top"><a href="${item.html_url}" target="_blank">Acessar</a><p>
             </div>
             <div class="author-container flex">
                 <div class="name-pic-pair">
