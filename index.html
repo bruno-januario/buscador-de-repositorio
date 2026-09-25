@@ -13,11 +13,14 @@
         <script type="module" src="js/main.js" defer></script>
     </head>
     <body>
-        <h1>Buscador de Repositório</h1>
-
-        <input id="search-field" type="text" placeholder="Digitar repositório...">
-        <button id="search-btn">Buscar</button>
-
-        <div id="search-result"></div>
+        <header class="flex">
+            <h1>Buscador de Repositório</h1>
+            <div class="search-group">
+                <input id="search-field" type="text" placeholder="Digitar repositório...">
+                <button id="search-btn">Buscar</button>
+            </div>
+        </header>
+        
+        <main id="search-result"></main>
     </body>
 </html>
