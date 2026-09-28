@@ -29,15 +29,24 @@ export function showRepositories(data) {
     searchResult.innerHTML = htmlContent;
 }
 
-export function showErrorMessage(message) {
+export function showMessage(message) {
     searchResult.innerHTML = '';
     
-    let htmlErrorMessage = `
+    let htmlMessage = `
         <div class="message">
             ${message}
         </div>
     `
-    searchResult.innerHTML = htmlErrorMessage;
+    searchResult.innerHTML = htmlMessage;
+}
+
+export function showLoading() {
+    searchResult.innerHTML = '';
+
+    let loadingState = `
+        <div class="loading-spinner"></div>
+    `
+    searchResult.innerHTML = loadingState;
 }
 
 searchField.addEventListener('keyup', (event) => {
@@ -58,7 +67,7 @@ searchField.addEventListener('input', (event) => {
 
     if(!fieldValue) {
         searchResult.innerHTML = '';
-        showErrorMessage('Nenhum repositório para exibir.');
+        showMessage('Nenhum repositório para exibir.');
     }
 })
 
