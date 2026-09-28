@@ -29,6 +29,17 @@ export function showRepositories(data) {
     searchResult.innerHTML = htmlContent;
 }
 
+export function showErrorMessage(message) {
+    searchResult.innerHTML = '';
+    
+    let htmlErrorMessage = `
+        <div class="message">
+            ${message}
+        </div>
+    `
+    searchResult.innerHTML = htmlErrorMessage;
+}
+
 searchField.addEventListener('keyup', (event) => {
     if(event.key.toLowerCase() == 'enter') {
         let fieldValue = searchField.value.trim();
@@ -39,6 +50,15 @@ searchField.addEventListener('keyup', (event) => {
         else {
             search(fieldValue);
         }
+    }
+})
+
+searchField.addEventListener('input', (event) => {
+    let fieldValue = searchField.value.trim();
+
+    if(!fieldValue) {
+        searchResult.innerHTML = '';
+        showErrorMessage('Nenhum repositório para exibir.');
     }
 })
 
