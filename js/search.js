@@ -2,10 +2,10 @@ import { showRepositories, showMessage, showLoading } from "./main.js";
 
 export async function search(keyword) {
 
+    showLoading();
+
     try {
         let response = await fetch(`https://api.github.com/search/repositories?q=${keyword}&sort=stars&per_page=10`);
-
-        showLoading();
 
         if (!response.ok) {
             throw new Error('Erro ao se conectar com a API do GitHub.');
