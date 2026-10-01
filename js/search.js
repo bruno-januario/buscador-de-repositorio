@@ -22,6 +22,12 @@ export async function search(keyword) {
     }
     catch (error) {
         console.log(error.message);
-        showMessage('Erro de rede. Por favor, verifique sua conexão com a internet!')
+
+        if(!navigator.onLine) {
+            showMessage('Erro de rede. Por favor, verifique sua conexão com a internet!')
+        }
+        else {
+            showMessage(error.message);
+        }
     } 
 }
