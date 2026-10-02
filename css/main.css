@@ -12,6 +12,7 @@ h1 {
     margin: 1.5rem 0;
     font-weight: 300;
     font-style: italic;
+    font-size: clamp(23px, 5dvw, 32px);
 }
 
 .message {
@@ -42,7 +43,7 @@ h2 {
 }
 
 #search-field {
-    width: 15rem;
+    width: clamp(200px, 50dvw, 360px);
 }
 
 #search-btn:hover {
@@ -85,18 +86,21 @@ p {
 }
 
 .repo-container a {
-    background-color: #2563EB;
-    color: #fff;
+    display: inline-block;
+    margin: 1.6rem 0 0 0;
+    background-color: #fff;
+    color: #2563EB;
+    border: 2px solid #2563EB;
     border-radius: 0.35rem;
     padding: 0.5rem 0.8rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
 }
 
 .repo-container a:hover {
-    background-color: #3d70e0;
-}
-
-.repo-container .margin-top {
-    margin: 1.6rem 0 0 0;
+    background-color: #2563EB;
+    color: #fff;
+    transform: scale(1.02);
 }
 
 .author-container {
@@ -106,6 +110,11 @@ p {
 
 .name-pic-pair {
     text-align: center;
+}
+
+.name-pic-pair p {
+    font-weight: bold;
+    font-size: 1.1rem;
 }
 
 .author-pic {

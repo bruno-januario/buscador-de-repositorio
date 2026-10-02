@@ -1,0 +1,28 @@
+@media (max-width: 500px) {
+
+    .repo-container {
+        text-align: center;
+    }
+
+    .repo-container p {
+        text-align: left;
+        margin: 1rem 0;
+    }
+
+    .repo-container a {
+        margin: 1rem 0 2.5rem 0;
+    }
+
+    .card-result {
+        flex-direction: column;
+    }
+
+    .author-pic {
+        border-radius: 50%;
+        width: 3rem;
+    }
+
+    .about-author {
+        display: block;
+    }
+}
