@@ -4,7 +4,7 @@ header, main {
     padding-inline: 1.5rem;
 }
 
-header {
+header, footer {
     flex-direction: column;
 }
 
@@ -16,10 +16,10 @@ h1 {
 }
 
 .message {
-    height: calc(90dvh - 120.375px);
+    height: calc(100dvh - 215px);
     text-align: center;
     align-content: center;
-    color: #555;
+    color: #2563EB;
     font-style: italic;
     font-weight: 300;
 }
@@ -126,4 +126,22 @@ p {
 .author-pic {
     border-radius: 50%;
     width: 6rem;
+}
+
+footer {
+    margin-bottom: 1.5rem;
+}
+
+footer p {
+    font-size: clamp(12px, 2dvw, 16px);
+}
+
+footer p span {
+    font-weight: bold;
+    color:#2563EB;
+}
+
+footer a {
+    color: #2563EB;
+    font-size: clamp(24px, 5dvw, 30px);
 }

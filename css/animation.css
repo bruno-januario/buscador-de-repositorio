@@ -7,7 +7,7 @@
 .loading-spinner {
     width: 4rem;
     height: 4rem;
-    margin: calc(45dvh - 60px - 2rem) auto;
+    margin: calc(50dvh - 107.5px - 2rem) auto;
     border: 5px solid rgba(0, 0, 0, 0.1);
     border-top-color: #2563EB;
     border-radius: 50%;
