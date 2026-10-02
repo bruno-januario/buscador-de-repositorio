@@ -31,7 +31,8 @@ h2 {
     display: inline-block;
     padding: 0.4rem 0.8rem;
     border-radius: 0.7rem;
-    text-wrap: nowrap;
+    word-break: break-all;      
+    overflow-wrap: anywhere;
 }
 
 #search-field, #search-btn {
@@ -86,7 +87,6 @@ p {
     -webkit-box-orient: vertical; 
     overflow: hidden;             
     text-overflow: ellipsis;      
-    
     word-break: break-all;      
     overflow-wrap: anywhere;      
 }
