@@ -12,7 +12,7 @@ export function showRepositories(data) {
         <div class="card-result flex">
             <div class="repo-container">
                 <h2>${item.name}</h2>
-                <p class="repo-description"><span>Descrição</span>: ${item.description || 'Indisponível'}</p>
+                <p class="repo-description"><span>Descrição</span>: ${limitText(item.description)}</p>
                 <p><span>Linguagem principal</span>: ${item.language || 'Indisponível'}</p>
                 <p><span>Número de estrelas</span>: ${item.stargazers_count}</p>
                 <a href="${item.html_url}" target="_blank">Acessar Repositório</a>
@@ -27,6 +27,12 @@ export function showRepositories(data) {
         `).join('');
 
     searchResult.innerHTML = htmlContent;
+}
+
+function limitText(text, limit = 200) {
+    if(!text) return 'Indisponível';
+    if(text.length <= limit) return text;
+    return text.slice(0, limit) + '...';
 }
 
 export function showMessage(message) {

@@ -80,10 +80,15 @@ p {
 }
 
 .repo-description {
-    max-width: 80dvw;
-    max-height: 130px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    max-width: clamp(200px, 80dvw, 900px);
+    display: -webkit-box;
+    -webkit-line-clamp: 4;        
+    -webkit-box-orient: vertical; 
+    overflow: hidden;             
+    text-overflow: ellipsis;      
+    
+    word-break: break-all;      
+    overflow-wrap: anywhere;      
 }
 
 .repo-container a {
