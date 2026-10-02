@@ -1,4 +1,4 @@
-import { search } from "./search.js"
+import { search } from "./api.js"
 
 const searchField = document.getElementById('search-field');
 const searchBtn = document.getElementById('search-btn');
