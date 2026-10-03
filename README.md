@@ -1,6 +1,8 @@
-# Buscador de Repositórios
+# [Buscador de Repositórios](https://bruno-januario.github.io/buscador-de-repositorio/)
 
 Aplicação web simples e funcional para buscar repositórios públicos no GitHub, consumindo a API oficial do GitHub com JavaScript puro. O projeto foi desenvolvido para praticar conceitos de `fetch`, `async/await`, tratamento de erros, loading states e manipulação do DOM.
+
+Para acessar o projeto online, [clique aqui!](https://bruno-januario.github.io/buscador-de-repositorio/)
 
 ## Visão geral
 
