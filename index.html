@@ -31,30 +31,32 @@
         <script type="module" src="js/main.js" defer></script>
     </head>
     <body>
-        <header class="flex">
-            <h1>Buscador de Repositório</h1>
-            <div class="search-group">
-                <input id="search-field" type="text" placeholder="Pesquisar...">
-                <button id="search-btn" alt="Buscar">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </div>
-        </header>
-        
-        <main id="search-result">
-            <div class="message">Nenhum repositório para exibir.</div>
-        </main>
+        <div class="container flex">
+            <header class="flex">
+                <h1>Buscador de Repositório</h1>
+                <div class="search-group">
+                    <input id="search-field" type="text" placeholder="Pesquisar...">
+                    <button id="search-btn" alt="Buscar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </header>
+            
+            <main id="search-result" class="flex">
+                <div class="message">Nenhum repositório para exibir.</div>
+            </main>
 
-        <footer class="flex">
-            <p>Desenvolvido por <span>Bruno Januário</span></p>
-            <div class="flex">
-                <a href="https://linkedin.com/in/dev-bruno-januario" target="_blank">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/bruno-januario" target="_blank">
-                    <i class="fa-brands fa-square-github"></i>
-                </a>
-            </div>
-        </footer>
+            <footer class="flex">
+                <p>Desenvolvido por <span>Bruno Januário</span></p>
+                <div class="flex">
+                    <a href="https://linkedin.com/in/dev-bruno-januario" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/bruno-januario" target="_blank">
+                        <i class="fa-brands fa-square-github"></i>
+                    </a>
+                </div>
+            </footer>
+        </div>
     </body>
 </html>
