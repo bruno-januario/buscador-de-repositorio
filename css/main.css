@@ -49,6 +49,7 @@ header p a {
     text-align: center;
     align-content: center;
     color: #555;
+    font-size: clamp(14px, 3dvw, 17px);
     font-style: italic;
     font-weight: 300;
 }
@@ -178,12 +179,12 @@ footer p {
     font-size: clamp(12px, 2dvw, 16px);
 }
 
-footer p span {
+footer p a {
     font-weight: bold;
     color:#2563EB;
 }
 
-footer a {
+footer div.flex a {
     color: #2563EB;
     font-size: clamp(24px, 5dvw, 30px);
 }
