@@ -27,8 +27,12 @@ export function showRepositories(data) {
         </div>
         `).join('') + `
             <div class="btn-container flex">
-                <button id="previous-btn" disabled><</button>
-                <button id="next-btn" disabled>></button>
+                <button id="previous-btn" class="pagination-btn" disabled>
+                    <i class="fa-solid fa-circle-chevron-left"></i>
+                </button>
+                <button id="next-btn" class="pagination-btn" disabled>
+                    <i class="fa-solid fa-circle-chevron-right"></i>
+                </button>
             </div>`;
 
     searchResult.innerHTML = htmlContent;
