@@ -1,8 +1,23 @@
-import { showRepositories, showMessage, showLoading } from "./main.js";
+import { searchField, showRepositories, showMessage, showLoading } from "./main.js";
+
+export let currentPage = 1;
+export let totalCount;
+
+export function previousPage() {
+    currentPage--;
+}
+
+export function nextPage() {
+    currentPage++;
+}
+
+export function resetPage() {
+    currentPage = 1;
+}
 
 // Busca de repositórios na API do GitHub
-export async function search(keyword) {
-
+export async function search(keyword, page = currentPage) {
+    
     // Exibe a animação de loading
     showLoading();
 
@@ -16,7 +31,7 @@ export async function search(keyword) {
     try {
         // Faz a chamada à API e mantém a busca segura com timeout
         let response = await fetch(
-            `https://api.github.com/search/repositories?q=${keyword}&sort=stars&per_page=10`, 
+            `https://api.github.com/search/repositories?q=${keyword}&sort=stars&page=${page}&per_page=10`, 
             { signal: signal }
         );
 
@@ -29,8 +44,10 @@ export async function search(keyword) {
         // Limpa o Timeout
         clearTimeout(timeOutID);
 
+        totalCount = data.total_count;
+
         // Mostra uma mensagem de "Nenhum repositório encontrado" caso a contagem de itens retornada seja zero
-        if (data.total_count === 0 || data.items.length === 0) {
+        if (totalCount === 0 || data.items.length === 0) {
             showMessage('Nenhum repositório foi encontrado.');
             return;
         }

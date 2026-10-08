@@ -1,6 +1,6 @@
-import { search } from "./api.js"
+import { search, currentPage, previousPage, nextPage, resetPage, totalCount } from "./api.js"
 
-const searchField = document.getElementById('search-field');
+export const searchField = document.getElementById('search-field');
 const searchBtn = document.getElementById('search-btn');
 const searchResult = document.getElementById('search-result');
 
@@ -25,9 +25,37 @@ export function showRepositories(data) {
                 </div>       
             </div>
         </div>
-        `).join('');
+        `).join('') + `
+            <div class="btn-container flex">
+                <button id="previous-btn" class="pagination-btn" disabled>
+                    <i class="fa-solid fa-circle-chevron-left"></i>
+                </button>
+                <button id="next-btn" class="pagination-btn" disabled>
+                    <i class="fa-solid fa-circle-chevron-right"></i>
+                </button>
+            </div>`;
 
     searchResult.innerHTML = htmlContent;
+
+    if(currentPage > 1) {
+        document.getElementById('previous-btn').removeAttribute('disabled');
+    }
+
+    if(currentPage < Math.ceil(totalCount / 10)) {
+        document.getElementById('next-btn').removeAttribute('disabled');
+    }
+
+    document.getElementById('previous-btn').addEventListener('click', () => {
+        let searchValue = searchField.value.trim();
+        previousPage();
+        search(searchValue, currentPage);
+    });
+
+    document.getElementById('next-btn').addEventListener('click', () => {
+        let searchValue = searchField.value.trim();
+        nextPage();
+        search(searchValue, currentPage);
+    });
 }
 
 // Limita o texto da descrição do repositório para, no máximo, 200 caracteres 
@@ -68,6 +96,7 @@ searchField.addEventListener('keyup', (event) => {
             alert('Por favor, digite o nome de um repositório para buscar!');
         }
         else {
+            resetPage();
             search(fieldValue);
         }
     }
@@ -77,10 +106,7 @@ searchField.addEventListener('keyup', (event) => {
 searchField.addEventListener('input', (event) => {
     let fieldValue = searchField.value.trim();
 
-    if(!fieldValue) {
-        searchResult.innerHTML = '';
-        showMessage('Nenhum repositório para exibir.');
-    }
+    showMessage('Nenhum repositório para exibir.');
 })
 
 // Interação do usuário com a busca através do 'click' no botão de pesquisa
@@ -91,6 +117,7 @@ searchBtn.addEventListener('click', () => {
         alert('Por favor, digite o nome de um repositório para buscar!');
     }
     else {
+        resetPage();
         search(fieldValue);
     }
 })
