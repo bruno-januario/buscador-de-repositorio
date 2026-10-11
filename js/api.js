@@ -31,7 +31,7 @@ export async function search(keyword, page = currentPage) {
     try {
         // Faz a chamada à API e mantém a busca segura com timeout
         let response = await fetch(
-            `https://api.github.com/search/repositories?q=${keyword}&sort=stars&page=${page}&per_page=10`, 
+            `https://api.github.com/search/repositories?q=${encodeURIComponent(keyword)}&sort=stars&page=${page}&per_page=10`,
             { signal: signal }
         );
 

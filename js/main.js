@@ -46,23 +46,25 @@ export function showRepositories(data) {
     }
 
     document.getElementById('previous-btn').addEventListener('click', () => {
-        let searchValue = searchField.value.trim();
         previousPage();
-        search(searchValue, currentPage);
+        search(searchResult.dataset.search, currentPage);
     });
 
     document.getElementById('next-btn').addEventListener('click', () => {
-        let searchValue = searchField.value.trim();
         nextPage();
-        search(searchValue, currentPage);
+        search(searchResult.dataset.search, currentPage);
     });
 }
 
 // Limita o texto da descrição do repositório para, no máximo, 200 caracteres 
 function limitText(text, limit = 200) {
     if(!text) return 'Indisponível';
-    if(text.length <= limit) return text;
-    return text.slice(0, limit) + '...';
+    return (text.length <= limit ? text : text.slice(0, limit) + '...')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
 }
 
 // Mensagens de estado e feedback para o usuário
@@ -97,6 +99,7 @@ searchField.addEventListener('keyup', (event) => {
         }
         else {
             resetPage();
+            searchResult.dataset.search = fieldValue;
             search(fieldValue);
         }
     }
@@ -106,7 +109,9 @@ searchField.addEventListener('keyup', (event) => {
 searchField.addEventListener('input', (event) => {
     let fieldValue = searchField.value.trim();
 
-    showMessage('Nenhum repositório para exibir.');
+    if(!fieldValue) {
+        showMessage('Nenhum repositório para exibir.');
+    }
 })
 
 // Interação do usuário com a busca através do 'click' no botão de pesquisa
@@ -118,6 +123,7 @@ searchBtn.addEventListener('click', () => {
     }
     else {
         resetPage();
+        searchResult.dataset.search = fieldValue;
         search(fieldValue);
     }
 })

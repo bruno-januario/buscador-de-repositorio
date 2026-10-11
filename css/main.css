@@ -129,7 +129,7 @@ p {
     -webkit-box-orient: vertical; 
     overflow: hidden;             
     text-overflow: ellipsis;      
-    word-break: break-all;      
+    word-break: normal;      
     overflow-wrap: anywhere;      
 }
 
